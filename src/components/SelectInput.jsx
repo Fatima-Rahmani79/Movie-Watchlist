@@ -1,0 +1,18 @@
+export default function SelectInput ({label, value, onChange, options}){
+    return (
+        <span className="addMovieItems">
+            <label className="label">{label}</label>
+            <select
+            className="input"
+            value={value}
+            onChange={(e) => onChange(e.target.value)}
+            >
+                {options.map((opt) => (
+                    <option key={opt} value={opt}>
+                        {opt}
+                    </option>
+                ))}
+            </select>
+        </span>
+    )
+}

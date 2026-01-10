@@ -1,8 +1,11 @@
+import movieIcon from '../assets/movie.png';
+
 export default function MovieItem({ movie, onToggle }) {
   return (
     <li className="item">
       <div className="movieTitle">
-        <p>{movie.movieName}</p>
+        
+        <p><img className='icon' src={movieIcon} alt="Movie Icon" /> {movie.movieName}</p>
       </div>
 
       <div className="movieDetails">
@@ -14,7 +17,7 @@ export default function MovieItem({ movie, onToggle }) {
 
       <div className="movieBtns">
         <button
-          className="btn"
+          className={`btn ${movie.isWatched ? "unwatched" : "watched"}`}
           onClick={() => onToggle(movie.id)}
         >
           {movie.isWatched ? "Mark Unwatched" : "Mark Watched"}

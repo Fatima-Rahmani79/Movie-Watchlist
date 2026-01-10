@@ -1,4 +1,3 @@
-// import movieIcon from './assets/movie.png';
 import { useState } from 'react';
 import './App.css';
 import AddMovie from './components/AddMovie';
@@ -42,7 +41,6 @@ function App() {
     <div className='container'>
       <section className="header">
         <h1>
-          {/* <img className='icon' src={movieIcon} alt="Movie Icon" /> */}
           Movie Watchlist
         </h1>
         <p>Track your movie and stay organized</p>

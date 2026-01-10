@@ -1,23 +1,24 @@
-export default function MovieItem({ movies }) {
+export default function MovieItem({ movie, onToggle }) {
   return (
     <li className="item">
-      <div>
-        <div className="movieTitle">
-            <p>{movies.movieName}</p>
-        </div>
+      <div className="movieTitle">
+        <p>{movie.movieName}</p>
+      </div>
 
-        <div className="movieDetails">
-          <span>{movies.genre}</span>
-          <span>
-            {movies.isWatched ? (<span className="watched">Watched</span>) :
-          (<span className="unwatched">Unwatched</span>)}
-          </span>
-          
-        </div>
+      <div className="movieDetails">
+        <span>{movie.genre}</span>
+        <span className={movie.isWatched ? "watched" : "unwatched"}>
+          {movie.isWatched ? "Watched" : "Unwatched"}
+        </span>
+      </div>
 
-        {/* <div className="movieBtns">
-            {movies.isWatched} ? <button className="btn Unwatched">Mark Unwatched</button> : <button className="btn watched">Mark Watched</button> 
-        </div> */}
+      <div className="movieBtns">
+        <button
+          className="btn"
+          onClick={() => onToggle(movie.id)}
+        >
+          {movie.isWatched ? "Mark Unwatched" : "Mark Watched"}
+        </button>
       </div>
     </li>
   );

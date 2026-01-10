@@ -26,6 +26,18 @@ function App() {
     setMovie((prev) => [newMovie, ...prev]);
   };
 
+  function handleToggle(id) {
+  setMovie(prev =>
+    prev.map(movie =>
+      movie.id === id
+        ? { ...movie, isWatched: !movie.isWatched }
+        : movie
+    )
+  );
+}
+
+
+
   return (
     <div className='container'>
       <section className="header">
@@ -39,7 +51,7 @@ function App() {
         <AddMovie onAddMovie={handleAddMovie} />
 
         <MovieSummary title="Movies List">
-          <MovieList movies={movies}></MovieList>
+          <MovieList movies={movies} onToggle={handleToggle} />
         </MovieSummary>
     </div>
   )

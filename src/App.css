@@ -13,7 +13,7 @@ body {
   position: relative;
 }
 
-/* لایه تار */
+/* Blur layer */
 body::before {
   content: "";
   position: absolute;
@@ -36,6 +36,10 @@ body::before {
   color: #ffffff;
 }
 
+section{
+  margin: 1rem;
+}
+
 h1 {
   font-size: 3.9rem;
 }
@@ -43,6 +47,61 @@ h1 {
 .container p {
   font-size: 1.7rem;
   color: #cfcfcf;
+}
+
+.card {
+  padding: 1rem;
+  background-color: #e0e0e0ec;
+  color: #000000;
+  border-radius: 6px;
+  text-align: start;
+}
+
+.title {
+  margin-bottom: 10px;
+  color: #2d2d2d;
+}
+
+.addMovieItemsContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.addMovieItems {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.label {
+  color: #383838;
+}
+
+.input , .select{
+  width: 14rem;
+  padding: 6px;
+  border: 1px solid #858585;
+  border-radius: 6px;
+}
+
+.select {
+  width: auto;
+}
+
+.btn {
+  width: 4rem;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.primary {
+  background-color: #0155e6;
+}
+
+.primary:hover {
+  background-color: #0040ae;  
 }
 
 .icon {

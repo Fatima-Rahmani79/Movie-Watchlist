@@ -3,7 +3,7 @@ export default function SelectInput ({label, value, onChange, options}){
         <span className="addMovieItems">
             <label className="label">{label}</label>
             <select
-            className="input"
+            className="select"
             value={value}
             onChange={(e) => onChange(e.target.value)}
             >

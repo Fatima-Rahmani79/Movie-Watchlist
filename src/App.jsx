@@ -2,6 +2,8 @@
 import { useState } from 'react';
 import './App.css';
 import AddMovie from './components/AddMovie';
+import MovieSummary from './components/MovieSummary';
+import MovieList from './components/MovieList';
 
 function createID () {
   if (typeof crypto !== "undefined" && crypto.randomUUID) return crypto.randomUUID();
@@ -9,8 +11,10 @@ function createID () {
 }
 
 function App() {
-  const [movie, setMovie] = useState([
-    {id: createID(), title: "Forrest Gump"}
+  const [movies, setMovie] = useState([
+    {id: createID(), movieName: "Forrest Gump", genre: "Epic", isWatched: true},
+    {id: createID(), movieName: "The Godfather", genre: "Drama", isWatched: false},
+    {id: createID(), movieName: "The Dark Knight", genre: "Action", isWatched: false}
   ]);
 
   function handleAddMovie(data) {
@@ -20,7 +24,7 @@ function App() {
     };
 
     setMovie((prev) => [newMovie, ...prev]);
-  }
+  };
 
   return (
     <div className='container'>
@@ -33,6 +37,10 @@ function App() {
         </section>
 
         <AddMovie onAddMovie={handleAddMovie} />
+
+        <MovieSummary title="Movies List">
+          <MovieList movies={movies}></MovieList>
+        </MovieSummary>
     </div>
   )
 }

@@ -5,6 +5,7 @@ import SelectInput from "./SelectInput";
 const GENRES = [
   "Drama",
   "Action",
+  "Epic",
   "Adventure",
   "animation",
   "Comedy",

@@ -1,6 +1,6 @@
 import movieIcon from '../assets/movie.png';
 
-export default function MovieItem({ movie, onToggle }) {
+export default function MovieItem({ movie, onToggle, onDelete }) {
   return (
     <li className="item">
       <div className="movieTitle">
@@ -22,6 +22,8 @@ export default function MovieItem({ movie, onToggle }) {
         >
           {movie.isWatched ? "Mark Unwatched" : "Mark Watched"}
         </button>
+
+        <button className='btn delete' onClick={() => onDelete(movie.id)}>Delete</button>
       </div>
     </li>
   );

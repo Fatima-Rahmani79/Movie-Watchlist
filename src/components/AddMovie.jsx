@@ -23,7 +23,7 @@ export default function AddMovie({ onAddMovie }) {
 
     const cleanTitle = title.trim();
 
-    if (!cleanTitle) return setError("Movie Name is required.");
+    if (!cleanTitle) return setError("⚠️ Movie Name is required.");
 
     onAddMovie({ title: cleanTitle });
 
@@ -53,8 +53,10 @@ export default function AddMovie({ onAddMovie }) {
           Add
         </button>
 
-        {error ? <p className="error">{error}</p> : null}
-      </div>
+        
+      </div><div className="error">
+        {error ? <span >{error}</span> : null}
+        </div>
     </section>
   );
 }

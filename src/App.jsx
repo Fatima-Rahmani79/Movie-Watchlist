@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import './App.css';
 import AddMovie from './components/AddMovie';
-import MovieSummary from './components/MovieSummary';
+import MovieListCard from './components/MovieListCard.jsx';
 import MovieList from './components/MovieList';
+import FilterControls from './components/FilterControls.jsx';
 
 function createID () {
   if (typeof crypto !== "undefined" && crypto.randomUUID) return crypto.randomUUID();
@@ -15,6 +16,14 @@ function App() {
     {id: createID(), movieName: "The Godfather", genre: "Drama", isWatched: false},
     {id: createID(), movieName: "The Dark Knight", genre: "Action", isWatched: false}
   ]);
+
+  const [filter, setFilter] = useState("all");
+
+  const filteredMovies = movies.filter(movie => {
+    if (filter === "watched") return movie.isWatched;
+    if (filter === "unwatched") return !movie.isWatched;
+    return true;
+  });
 
   function handleAddMovie(data) {
     const newMovie ={
@@ -31,11 +40,13 @@ function App() {
       movie.id === id
         ? { ...movie, isWatched: !movie.isWatched }
         : movie
-    )
-  );
-}
+      )
+    );
+  }
 
-
+  function handleDeleteMovie(id) {
+    setMovie((prev) => prev.filter((e) => e.id !== id));
+  }
 
   return (
     <div className='container'>
@@ -48,9 +59,15 @@ function App() {
 
         <AddMovie onAddMovie={handleAddMovie} />
 
-        <MovieSummary title="Movies List">
-          <MovieList movies={movies} onToggle={handleToggle} />
-        </MovieSummary>
+        <FilterControls filter={filter} onChangeFilter={setFilter} />
+
+        <MovieListCard title="Movies List">
+          <MovieList 
+          movies={filteredMovies} 
+          onToggle={handleToggle} 
+          onDelete={handleDeleteMovie} 
+          />
+        </MovieListCard>
     </div>
   )
 }

@@ -1,4 +1,4 @@
-export default function MovieSummary ({title, children}) {
+export default function MovieListCard ({title, children}) {
     return (
         <section className="Movie-list card">
             <h2 className="title">{title}</h2>

@@ -4,8 +4,10 @@ export default function MovieItem({ movie, onToggle, onDelete }) {
   return (
     <li className="item">
       <div className="movieTitle">
-        
-        <p><img className='icon' src={movieIcon} alt="Movie Icon" /> {movie.movieName}</p>
+        <img className='icon' src={movieIcon} alt="Movie Icon" />
+        <p> 
+        {movie.movieName}
+        </p>
       </div>
 
       <div className="movieDetails">
@@ -23,7 +25,12 @@ export default function MovieItem({ movie, onToggle, onDelete }) {
           {movie.isWatched ? "Mark Unwatched" : "Mark Watched"}
         </button>
 
-        <button className='btn delete' onClick={() => onDelete(movie.id)}>Delete</button>
+        <button
+          className="btn delete"
+          onClick={() => onDelete(movie.id)}
+        >
+          Delete
+        </button>
       </div>
     </li>
   );

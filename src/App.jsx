@@ -4,6 +4,7 @@ import AddMovie from './components/AddMovie';
 import MovieListCard from './components/MovieListCard.jsx';
 import MovieList from './components/MovieList';
 import FilterControls from './components/FilterControls.jsx';
+import Summary from './components/Summary.jsx';
 
 function createID () {
   if (typeof crypto !== "undefined" && crypto.randomUUID) return crypto.randomUUID();
@@ -16,6 +17,10 @@ function App() {
     {id: createID(), movieName: "The Godfather", genre: "Drama", isWatched: false},
     {id: createID(), movieName: "The Dark Knight", genre: "Action", isWatched: false}
   ]);
+  
+  const totalCount = movies.length;
+  const watchedCount = movies.filter(movie => movie.isWatched).length;
+  const unwatchedCount = movies.filter(movie => !movie.isWatched).length;
 
   const [filter, setFilter] = useState("all");
 
@@ -60,6 +65,12 @@ function App() {
         <AddMovie onAddMovie={handleAddMovie} />
 
         <FilterControls filter={filter} onChangeFilter={setFilter} />
+
+        <Summary
+        total={totalCount}
+        watched={watchedCount}
+        unwatched={unwatchedCount}
+        />
 
         <MovieListCard title="Movies List">
           <MovieList 

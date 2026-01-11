@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import TextInput from "./TextInput";
 import SelectInput from "./SelectInput";
@@ -10,7 +11,7 @@ const GENRES = [
   "animation",
   "Comedy",
   "Horror",
-  "Other"
+  "Other",
 ];
 
 export default function AddMovie({ onAddMovie }) {
@@ -19,17 +20,23 @@ export default function AddMovie({ onAddMovie }) {
   const [error, setError] = useState("");
 
   function submit() {
-    setError("");
+  setError("");
 
-    const cleanTitle = title.trim();
+  const cleanTitle = title.trim();
 
-    if (!cleanTitle) return setError("⚠️ Movie Name is required.");
+  if (!cleanTitle) return setError("⚠️ Movie Name is required.");
+  if (!genre) return setError("⚠️ Genre is required.");
 
-    onAddMovie({ title: cleanTitle });
+  onAddMovie({
+    movieName: cleanTitle,
+    genre,
+    isWatched: false,
+  });
 
-    setTitle("");
-    setGenre("");
-  }
+  setTitle("");
+  setGenre("");
+}
+
 
   return (
     <section className="addMovie card">
@@ -52,11 +59,8 @@ export default function AddMovie({ onAddMovie }) {
         <button className="btn primary" onClick={submit}>
           Add
         </button>
-
-        
-      </div><div className="error">
-        {error ? <span >{error}</span> : null}
-        </div>
+      </div>
+      <div className="error">{error ? <span>{error}</span> : null}</div>
     </section>
   );
 }

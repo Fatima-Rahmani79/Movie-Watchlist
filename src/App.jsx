@@ -18,11 +18,12 @@ function App() {
     {id: createID(), movieName: "The Dark Knight", genre: "Action", isWatched: false}
   ]);
   
+  const [filter, setFilter] = useState("all");
+  
   const totalCount = movies.length;
   const watchedCount = movies.filter(movie => movie.isWatched).length;
   const unwatchedCount = movies.filter(movie => !movie.isWatched).length;
 
-  const [filter, setFilter] = useState("all");
 
   const filteredMovies = movies.filter(movie => {
     if (filter === "watched") return movie.isWatched;

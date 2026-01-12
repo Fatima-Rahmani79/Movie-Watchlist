@@ -15,6 +15,11 @@ export default function Summary ({total, watched, unwatched}) {
         <h2>{unwatched}</h2>
         <p className="summary-title">Unwatched</p>
       </div>
+
+      
+        {(watched === total && watched > 0) ? <div id="watchMassage"><p>You watched everything!</p></div> : "" }
+      
+      
     </section>
   );
 }

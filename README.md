@@ -1,16 +1,109 @@
-# React + Vite
+# 🎬 Movie Watchlist Manager
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple and clean **Movie Watchlist** application built with **React + Vite**.  
+This project is designed as a Week 2 assignment to practice core React concepts such as state management, events, conditional rendering, lists, keys, and derived state.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
 
-## React Compiler
+- ➕ Add movies with title and genre  
+- 👁️ Mark movies as watched / unwatched  
+- 🗑️ Delete movies from the list  
+- 🔍 Filter movies (All / Watched / Unwatched)  
+- 📊 Live summary statistics (Total, Watched, Unwatched)  
+- 🎨 Clean UI with responsive layout  
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **React**
+- **Vite**
+- **JavaScript (ES6+)**
+- **CSS (Custom, Responsive)**
+- **Git & GitHub**
+
+---
+
+## 🧠 Concepts Practiced
+
+- `useState`
+- Event handling (`onClick`, `onChange`)
+- Conditional rendering
+- Rendering lists with `.map()`
+- Using **unique and stable keys**
+- **Derived state** (computed values instead of extra state)
+- Component-based architecture
+
+---
+
+## 📂 Project Structure
+
+src/
+├─ components/
+│ ├─ AddMovie.jsx
+│ ├─ MovieList.jsx
+│ ├─ MovieItem.jsx
+│ ├─ FilterControls.jsx
+│ ├─ Summary.jsx
+│ ├─ TextInput.jsx
+│ └─ SelectInput.jsx
+│
+├─ App.jsx
+├─ main.jsx
+└─ App.css
+
+
+---
+
+## 📊 Data Model
+
+Each movie object follows this structure:
+
+```js
+{
+  id: "unique-id",
+  movieName: "Inception",
+  genre: "Action",
+  isWatched: false
+}
+Getting Started (Local)
+
+Clone the repository:
+
+git clone https://github.com/Fatima-Rahmani79/Movie-Watchlist.git
+
+
+Install dependencies:
+
+npm install
+
+
+Run development server:
+
+npm run dev
+
+
+Build for production:
+
+npm run build
+
+
+
+Make sure to configure the base option in vite.config.js when deploying to GitHub Pages.
+
+🎯 Assignment Notes
+
+No unnecessary state is stored for derived values
+
+Filtering and counts are computed during render
+
+Clean separation of components
+
+Focused on clarity, usability, and maintainability
+
+👩‍💻 Author
+
+Fatima Rahmani
+Frontend Developer (React)
